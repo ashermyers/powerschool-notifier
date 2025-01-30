@@ -42,6 +42,7 @@ type WebhookMessage struct {
 }
 
 const (
+	powerschoolUrl      = "https://example.powerschool.com"
 	powerschoolUsername = "<YOUR_POWERSCHOOL_PARENT_USERNAME>"
 	powerschoolPassword = "<YOUR_POWERSCHOOL_PARENT_PASSWORD>"
 	discordWebhookURL   = "<YOUR_DISCORD_WEBHOOK_URL>"
@@ -233,7 +234,7 @@ func fetchAndCompare() {
 	}
 
 	// Fetch new data
-	client := powerschool.Client("https://cms.powerschool.com")
+	client := powerschool.Client(powerschoolUrl)
 	student, err := client.GetStudent(powerschoolUsername, powerschoolPassword)
 	if err != nil {
 		logError("Failed to get student data: " + err.Error())
